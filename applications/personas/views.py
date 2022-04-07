@@ -17,3 +17,10 @@ class ListByAreaEmpleados(ListView):
         departamento__shor_name = area
         )
         return lista
+
+class ListEmpleadosByKword(ListView):
+    template_name = 'persona/list_word.html'
+    context_object_name = 'empleados'
+
+    def get_queryset(self):
+        return []
