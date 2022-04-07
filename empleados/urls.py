@@ -6,4 +6,5 @@ urlpatterns = [
     #url de app departamentos
     path('', include('applications.departamentos.urls')),
     path('', include('applications.personas.urls')),
+    path('', include('applications.home.urls')),
 ]
