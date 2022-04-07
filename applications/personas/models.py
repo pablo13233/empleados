@@ -1,4 +1,5 @@
 from django.db import models
+from ckeditor.fields import RichTextField
 
 from applications.departamentos.models import Departamento
 
@@ -27,6 +28,7 @@ class Empleado(models.Model):
     departamento = models.ForeignKey(Departamento, on_delete=models.CASCADE)
     image = models.ImageField(upload_to='empleado', blank=True, null=True)
     skill = models.ManyToManyField(Habilidades)
+    hoja_vida = RichTextField()
 
     class Meta:
         verbose_name = 'Mi Empleado'
