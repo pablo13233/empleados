@@ -1,9 +1,7 @@
 from pyexpat import model
 from django.shortcuts import render
 from django.views.generic import (
-    TemplateView, 
-    ListView, 
-    CreateView
+    TemplateView, ListView, CreateView
     )
 
 from .models import Prueba
