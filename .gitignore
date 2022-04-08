@@ -1,1 +1,2 @@
 empleados/settings/local.py
+*.pyc
