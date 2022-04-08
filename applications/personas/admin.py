@@ -7,7 +7,7 @@ admin.site.register(Habilidades)
 
 class EmpleadoAdmin(admin.ModelAdmin):
     list_display = (
-        'first_name', 'last_name', 'departamento', 'job', 'full_name',
+        'first_name', 'last_name', 'departamento', 'job', 'full_name', 'id', 
     )
     #
     def full_name(self, obj):

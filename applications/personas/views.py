@@ -6,6 +6,8 @@ from .models import Empleado
 
 class ListAllEmpleados(ListView):
     template_name = 'persona/list_all.html'
+    paginate_by = 4
+    ordering = 'first_name'
     model = Empleado
 
 class ListByAreaEmpleados(ListView):
@@ -31,3 +33,11 @@ class ListEmpleadosByKword(ListView):
         )
         print('lista result: ', lista)
         return lista
+
+class ListHabilidadesEmpleado(ListView):
+    template_name = 'persona/skills.html'
+    context_object_name = 'skills'
+
+    def get_queryset(self):
+        empleado = Empleado.objects.get(id=1)
+        return empleado.skill.all()
