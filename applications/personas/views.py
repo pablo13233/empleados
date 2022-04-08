@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import (
-    ListView
+    ListView, DetailView
     )
 from .models import Empleado
 
@@ -25,9 +25,7 @@ class ListEmpleadosByKword(ListView):
     context_object_name = 'empleados'
 
     def get_queryset(self):
-        print('**************************')
         palabra_clave = self.request.GET.get("kword",'')
-        print("===============", palabra_clave)
         lista = Empleado.objects.filter(
         first_name = palabra_clave
         )
@@ -41,3 +39,13 @@ class ListHabilidadesEmpleado(ListView):
     def get_queryset(self):
         empleado = Empleado.objects.get(id=1)
         return empleado.skill.all()
+
+
+class EmpleadoDetailView(DetailView):
+    model = Empleado
+    template_name = "persona/detail.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(EmpleadoDetailView, self).get_context_data(**kwargs)
+        context['skills'] = self.object.skill.all()
+        return context
