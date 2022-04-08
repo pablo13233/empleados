@@ -1,1 +1,14 @@
 <h1>Listado por caja de texto LV</h1>
+<form method="GET">{% csrf_token %}
+    <input type="text" id="kword" name="kword" placeholder="Ingrese Nombre aqui">
+    <button type="submit">Buscar</button>
+</form>
+
+<h3>Lista resultados</h3>
+<ul>
+    
+    {% for e in empleados %}
+        <li>{{e}}</li>
+    {% endfor %}
+        
+</ul>
