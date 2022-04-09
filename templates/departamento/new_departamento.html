@@ -1,0 +1,19 @@
+<h1>Form departamento</h1>
+
+<form action="#" method="post">{% csrf_token %}
+    <h3>Datos Empleado</h3>
+    <p>
+        {{form.nombre}}
+    </p>
+    <p>
+        {{form.apellidos}}
+    </p>
+    <h3>Datos departamento</h3>
+    <p>
+        {{form.departamento}}
+    </p>
+    <p>
+        {{form.shorname}}
+    </p>
+    <button type="submit">Guardar</button>
+</form>
