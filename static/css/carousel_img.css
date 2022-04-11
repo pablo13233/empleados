@@ -1,0 +1,8 @@
+.imgnormalizada{
+    margin: 0 auto;
+    width: auto;
+    height: 0px;
+    max-height: 200px;
+  }
+
+.carousel .item > img { display: block; line-height: 1; }
