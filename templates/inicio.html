@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Pagina de inicio sistema Empleados {% endblock title %}
+
+{% block content %}
+
+{% include 'includes/header.html' %}
+
+<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="{% static 'img/img2.jpg' %}" class="d-block w-100" alt="space">
+        </div>
+        <div class="carousel-item">
+            <img src="{% static 'img/img2.jpg' %}" class="d-block w-100" alt="space">
+        </div>
+        <div class="carousel-item">
+            <img src="{% static 'img/img3.jpg' %}" class="d-block w-100" alt="space">
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+<!--bloque de bienvenida -->
+<div class="container center">
+    <h1>Bienvenido al sistema de registro de empleados</h1>
+    <div class="row center">
+        <div class="col shadow p-3 mb-5 bg-white rounded border">
+            <h5>registra y controla empleados</h5>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis magni dicta commodi necessitatibus nihil
+                beatae.</p>
+            <a href="#" class="link-primary">Ver empleados</a>
+        </div>
+    </div>
+</div>
+<!-- fin bloque de bienvenida -->
+
+{% endblock content %}
