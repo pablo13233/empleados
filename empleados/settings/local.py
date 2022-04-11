@@ -1,4 +1,6 @@
+from pathlib import Path
 from .base import *
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -25,3 +27,6 @@ DATABASES = {
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    BASE_DIR.parent / 'static'
+]
