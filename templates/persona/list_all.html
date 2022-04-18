@@ -1,7 +1,43 @@
-<h1>lista empleados</h1>
+{% extends 'base.html' %}
 
-<ul>
-    {% for e in object_list %}
-        <li>{{e}}</li>
-    {% endfor %}
-</ul>
+
+{% block content %}
+{% include 'includes/header.html' %}
+
+<div class="div container">
+    <h1>lista empleados</h1>
+    <div class="row justify-content-md-cente">
+        <div class="col col-8">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Buscar Empleados" aria-label="Buscar Empleados"
+                    aria-describedby="button-addon2">
+                <button class="btn btn-outline-secondary" type="button" id="button-addon2">Buscar</button>
+            </div>
+        </div>
+    </div>
+    <div class="row col-12">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nombres</th>
+                    <th scope="col">Apellidos</th>
+                    <th scope="col">Departamento</th>
+                    <th scope="col">Accion</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for e in object_list %}
+                <tr>
+                    <th scope="row">{{ e.id }}</th>
+                    <td>{{ e.first_name }}</td>
+                    <td>{{ e.last_name }}</td>
+                    <td>{{ e.departamento.shor_name }}</td>
+                    <td><a href="#" class="btn btn-secondary btn-lg disabled btn-sm" tabindex="-1" role="button" aria-disabled="true">ver</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock content %}

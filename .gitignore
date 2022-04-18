@@ -1,3 +1,9 @@
+<<<<<<< HEAD
 **/empleados/settings/local.py
 
 **.pyc
+=======
+/local.py
+*.pyc
+local.py
+>>>>>>> main
