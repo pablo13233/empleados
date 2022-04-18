@@ -16,8 +16,14 @@ urlpatterns = [
         name='empleados_all'
     ),
     path(
+        'lista-empleados-admin/',
+        views.ListEmpleadosAdmin.as_view(),
+        name='empleados_admin'
+    ),
+    path(
         'listar-by-area/<shorname>/',
-        views.ListByAreaEmpleados.as_view()
+        views.ListByAreaEmpleados.as_view(),
+        name='empleados_area'
     ),
     path(
         'listar-empleado/',
@@ -29,7 +35,8 @@ urlpatterns = [
     ),
     path(
         'detail/<pk>/',
-        views.EmpleadoDetailView.as_view()
+        views.EmpleadoDetailView.as_view(),
+        name='empleado_detail'
     ),
     path(
         'add-empleado/',

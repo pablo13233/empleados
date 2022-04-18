@@ -5,19 +5,38 @@ from django.views.generic import (
 )
 from .models import Empleado
 
+
 class InicioView(TemplateView):
     """pagina de inicio"""
     template_name = 'inicio.html'
+
 
 class ListAllEmpleados(ListView):
     template_name = 'persona/list_all.html'
     paginate_by = 4
     ordering = 'first_name'
+    context_object_name = 'empleados'
+
+    def get_queryset(self):
+        palabra_clave = self.request.GET.get("kword", '')
+        lista = Empleado.objects.filter(
+            first_name__icontains=palabra_clave
+        )
+        print('lista result: ', lista)
+        return lista
+
+
+class ListEmpleadosAdmin(ListView):
+    template_name = 'persona/lista_enpleados.html'
+    paginate_by = 10
+    ordering = 'first_name'
+    context_object_name = 'empleados'
     model = Empleado
 
 
 class ListByAreaEmpleados(ListView):
     template_name = 'persona/list_area.html'
+    context_object_name = 'empleados'
 
     def get_queryset(self):
         area = self.kwargs['shorname']

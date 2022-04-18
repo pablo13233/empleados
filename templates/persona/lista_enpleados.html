@@ -1,20 +1,11 @@
 {% extends 'base.html' %}
 
-{% block title %}
-Lista Empleados por departamento
-{% endblock title %}
 
 {% block content %}
 {% include 'includes/header.html' %}
 
-<div class="container">
-
-    <div class="row my-3">
-        <div class="col-12">
-            <h1>Lista Empleados por Departamento</h1>
-        </div>
-    </div>
-
+<div class="div container">
+    <h1>lista empleados</h1>
     <div class="row col-12">
         <table class="table">
             <thead>
@@ -33,14 +24,16 @@ Lista Empleados por departamento
                     <td>{{ e.first_name }}</td>
                     <td>{{ e.last_name }}</td>
                     <td>{{ e.departamento.shor_name }}</td>
-                    <td><a href="{% url 'persona_app:empleado_detail' e.id %}" class="btn btn-secondary btn-lg btn-sm"
-                            tabindex="-1" role="button" aria-disabled="true">ver</a></td>
+                    <td><a href="{% url 'persona_app:modificar_empleado' e.id %}" class="btn btn-warning btn-lg btn-sm"
+                            tabindex="-1" role="button" aria-disabled="true">Editar</a></td>
+                    <td><a href="{% url 'persona_app:eliminar_empleado' e.id %}" class="btn btn-danger btn-lg btn-sm red"
+                        tabindex="-1" role="button" aria-disabled="true">Eliminar</a></td>
                 </tr>
                 {% endfor %}
             </tbody>
         </table>
     </div>
-<!--     <div class="row">
+    <div class="row">
         {% if is_paginated %}
         <nav aria-label="Page navigation example">
             <ul class="pagination">
@@ -71,8 +64,6 @@ Lista Empleados por departamento
         </nav>
         {% endif %}
 
-    </div> -->
+    </div>
 </div>
-
-
 {% endblock content %}

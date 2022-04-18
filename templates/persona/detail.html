@@ -1,8 +1,38 @@
-<h1>Detalle empleado {{skills}} </h1>
-{{empleado}}
+{% extends 'base.html' %}
 
-<h3>Todos los datos</h3>
-<p>{{empleado.first_name}}</p>
-<p>{{empleado.last_name}}</p>
-<p>{{empleado.departamento}}</p>
-<p>{{empleado.job}}</p>
+
+{% block content %}
+{% include 'includes/header.html' %}
+
+
+    <div class="container">
+        <div class="row justify-content-md-cente">
+            <div class="col col-12">
+                <h1>Detalle del empleado: {{empleado.id}}</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3 border border-3 rounded me-3 p-3">
+                <img src="{{empleado.image}}" alt="">
+            </div>
+            <div class="col-6">
+                <h3>Datos:</h3>
+                <p>Nombres: {{empleado.first_name}}</p>
+                <p>Apellidos: {{empleado.last_name}}</p>
+                <p>Departamento: {{empleado.departamento.shor_name}}</p>
+                <p>Puesto: {{empleado.job}}</p>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-8">
+                <h3>Habilidades:</h3>
+                <ul>
+                    {% for skill in skills %}
+                        <li>{{skill}}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}
