@@ -30,3 +30,9 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     BASE_DIR.parent / 'static'
 ]
+
+MEDIA_ROOT =  [
+    BASE_DIR.parent / 'media'
+]
+
+MEDIA_URL = '/media/'
